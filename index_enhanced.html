@@ -1,0 +1,957 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Untuk Cintaku yang Tersayang - Enhanced</title>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Poppins:wght@300;400;500;600&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 25%, #ffeaa7 50%, #fab1a0 75%, #ff7675 100%);
+            background-size: 400% 400%;
+            animation: gradientShift 15s ease infinite;
+            min-height: 100vh;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* Enhanced falling petals */
+        .petals-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1000;
+        }
+
+        .petal {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background: linear-gradient(45deg, #ff6b6b, #ffa726, #ff8a80);
+            border-radius: 0 100% 0 100%;
+            animation: fall linear infinite;
+            opacity: 0.8;
+        }
+
+        .petal.special {
+            background: linear-gradient(45deg, #e91e63, #f06292, #ba68c8);
+            box-shadow: 0 0 10px rgba(233, 30, 99, 0.5);
+        }
+
+        @keyframes fall {
+            0% {
+                transform: translateY(-100vh) rotate(0deg) scale(1);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(100vh) rotate(360deg) scale(0.5);
+                opacity: 0;
+            }
+        }
+
+        /* Floating elements */
+        .floating-elements {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .heart {
+            position: absolute;
+            color: rgba(255, 107, 107, 0.6);
+            font-size: 20px;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .star {
+            position: absolute;
+            color: rgba(255, 215, 0, 0.7);
+            font-size: 16px;
+            animation: twinkle 3s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-30px) rotate(10deg); }
+        }
+
+        @keyframes twinkle {
+            0%, 100% { opacity: 0.3; transform: scale(1); }
+            50% { opacity: 1; transform: scale(1.2); }
+        }
+
+        /* Main container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            position: relative;
+            z-index: 10;
+        }
+
+        /* Enhanced hero section */
+        .hero {
+            text-align: center;
+            padding: 120px 20px 80px;
+            color: white;
+            position: relative;
+        }
+
+        .hero h1 {
+            font-family: 'Dancing Script', cursive;
+            font-size: 4.5rem;
+            margin-bottom: 20px;
+            background: linear-gradient(45deg, #fff, #ff6b6b, #ffa726);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: glow 2s ease-in-out infinite alternate;
+            text-shadow: 0 0 30px rgba(255, 255, 255, 0.5);
+        }
+
+        .hero-subtitle {
+            font-size: 1.8rem;
+            margin-bottom: 30px;
+            opacity: 0.9;
+            animation: fadeInUp 1s ease-out 0.5s both;
+            font-family: 'Playfair Display', serif;
+        }
+
+        .hero-description {
+            font-size: 1.3rem;
+            margin-bottom: 40px;
+            opacity: 0.8;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.8;
+        }
+
+        @keyframes glow {
+            from { text-shadow: 0 0 20px #fff, 0 0 30px #ff6b6b, 0 0 40px #ff6b6b; }
+            to { text-shadow: 0 0 30px #fff, 0 0 40px #ffa726, 0 0 50px #ffa726; }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Enhanced rose garden */
+        .rose-garden {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            margin: 80px 0;
+            flex-wrap: wrap;
+        }
+
+        .rose {
+            width: 100px;
+            height: 100px;
+            position: relative;
+            animation: sway 3s ease-in-out infinite;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        .rose:hover {
+            transform: scale(1.2);
+        }
+
+        .rose-center {
+            width: 35px;
+            height: 35px;
+            background: #ff1744;
+            border-radius: 50%;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 2;
+            box-shadow: 0 0 15px rgba(255, 23, 68, 0.5);
+        }
+
+        .rose-petal {
+            width: 30px;
+            height: 45px;
+            background: linear-gradient(135deg, #ff5252, #ff1744);
+            border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform-origin: bottom center;
+            box-shadow: 0 0 10px rgba(255, 82, 82, 0.3);
+        }
+
+        .petal1 { transform: translate(-50%, -50%) rotate(0deg) translateY(-20px); }
+        .petal2 { transform: translate(-50%, -50%) rotate(45deg) translateY(-20px); }
+        .petal3 { transform: translate(-50%, -50%) rotate(90deg) translateY(-20px); }
+        .petal4 { transform: translate(-50%, -50%) rotate(135deg) translateY(-20px); }
+        .petal5 { transform: translate(-50%, -50%) rotate(180deg) translateY(-20px); }
+        .petal6 { transform: translate(-50%, -50%) rotate(225deg) translateY(-20px); }
+        .petal7 { transform: translate(-50%, -50%) rotate(270deg) translateY(-20px); }
+        .petal8 { transform: translate(-50%, -50%) rotate(315deg) translateY(-20px); }
+
+        @keyframes sway {
+            0%, 100% { transform: rotate(-5deg); }
+            50% { transform: rotate(5deg); }
+        }
+
+        /* Timeline section */
+        .timeline {
+            margin: 80px 0;
+            position: relative;
+        }
+
+        .timeline-title {
+            text-align: center;
+            font-family: 'Dancing Script', cursive;
+            font-size: 3rem;
+            color: white;
+            margin-bottom: 60px;
+            text-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
+        }
+
+        .timeline-container {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .timeline-item {
+            display: flex;
+            margin-bottom: 50px;
+            position: relative;
+            opacity: 0;
+            transform: translateY(50px);
+            animation: slideInUp 0.8s ease forwards;
+        }
+
+        .timeline-item:nth-child(odd) {
+            flex-direction: row-reverse;
+        }
+
+        .timeline-content {
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(15px);
+            border-radius: 25px;
+            padding: 30px;
+            margin: 0 20px;
+            flex: 1;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            transition: all 0.4s ease;
+        }
+
+        .timeline-content:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .timeline-date {
+            color: #ff6b6b;
+            font-weight: bold;
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+        }
+
+        .timeline-title-item {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: white;
+        }
+
+        .timeline-description {
+            color: rgba(255, 255, 255, 0.9);
+            line-height: 1.6;
+        }
+
+        @keyframes slideInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Enhanced love cards */
+        .love-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
+            margin: 80px 0;
+        }
+
+        .love-card {
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(15px);
+            border-radius: 25px;
+            padding: 40px;
+            text-align: center;
+            transition: all 0.4s ease;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .love-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+        }
+
+        .love-card h3 {
+            font-family: 'Dancing Script', cursive;
+            font-size: 2rem;
+            margin-bottom: 20px;
+            color: white;
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+        }
+
+        .love-card p {
+            color: rgba(255, 255, 255, 0.9);
+            line-height: 1.8;
+            font-size: 1.1rem;
+        }
+
+        .love-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+            transform: rotate(45deg);
+            transition: all 0.5s;
+            opacity: 0;
+        }
+
+        .love-card:hover::before {
+            animation: shine 0.5s ease;
+            opacity: 1;
+        }
+
+        @keyframes shine {
+            0% { transform: translateX(-100%) translateY(-100%) rotate(45deg); }
+            100% { transform: translateX(100%) translateY(100%) rotate(45deg); }
+        }
+
+        /* Quote section */
+        .quote-section {
+            text-align: center;
+            margin: 80px 0;
+            padding: 60px 20px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 30px;
+            backdrop-filter: blur(10px);
+        }
+
+        .quote {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.2rem;
+            color: white;
+            line-height: 1.8;
+            max-width: 800px;
+            margin: 0 auto;
+            font-style: italic;
+            text-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
+        }
+
+        .quote-author {
+            font-size: 1.3rem;
+            color: #ff6b6b;
+            margin-top: 20px;
+            font-family: 'Dancing Script', cursive;
+        }
+
+        /* Interactive elements */
+        .interactive-section {
+            margin: 80px 0;
+            text-align: center;
+        }
+
+        .memory-button {
+            background: linear-gradient(45deg, #ff6b6b, #ffa726);
+            border: none;
+            padding: 15px 30px;
+            border-radius: 50px;
+            color: white;
+            font-size: 1.1rem;
+            cursor: pointer;
+            margin: 10px;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(255, 107, 107, 0.3);
+        }
+
+        .memory-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(255, 107, 107, 0.4);
+        }
+
+        .hidden-message {
+            display: none;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 20px;
+            padding: 30px;
+            margin: 20px auto;
+            max-width: 500px;
+            color: white;
+            animation: fadeIn 0.5s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: scale(0.9); }
+            to { opacity: 1; transform: scale(1); }
+        }
+
+        /* Countdown section */
+        .countdown-section {
+            text-align: center;
+            margin: 80px 0;
+            color: white;
+        }
+
+        .countdown-title {
+            font-family: 'Dancing Script', cursive;
+            font-size: 2.5rem;
+            margin-bottom: 30px;
+            text-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
+        }
+
+        .countdown-timer {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+
+        .countdown-item {
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 20px;
+            padding: 20px;
+            min-width: 100px;
+            backdrop-filter: blur(10px);
+        }
+
+        .countdown-number {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: #ff6b6b;
+        }
+
+        .countdown-label {
+            font-size: 1rem;
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        /* Enhanced music player */
+        .music-player {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(10px);
+            border-radius: 50px;
+            padding: 15px 25px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            color: white;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .music-player:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: scale(1.05);
+        }
+
+        .play-btn {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(45deg, #ff6b6b, #ffa726);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+            box-shadow: 0 3px 10px rgba(255, 107, 107, 0.3);
+        }
+
+        .play-btn:hover {
+            transform: scale(1.1) rotate(360deg);
+        }
+
+        /* Responsive design */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 3rem;
+            }
+            
+            .hero-subtitle {
+                font-size: 1.4rem;
+            }
+            
+            .hero-description {
+                font-size: 1.1rem;
+            }
+            
+            .rose-garden {
+                gap: 20px;
+            }
+            
+            .rose {
+                width: 80px;
+                height: 80px;
+            }
+            
+            .quote {
+                font-size: 1.8rem;
+            }
+            
+            .countdown-timer {
+                gap: 15px;
+            }
+            
+            .countdown-item {
+                min-width: 80px;
+                padding: 15px;
+            }
+            
+            .countdown-number {
+                font-size: 2rem;
+            }
+        }
+
+        /* Scroll animations */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+    <div class="petals-container">
+        <div class="petal" style="left: 5%; animation-duration: 5s; animation-delay: 0s;"></div>
+        <div class="petal special" style="left: 15%; animation-duration: 6s; animation-delay: 1s;"></div>
+        <div class="petal" style="left: 25%; animation-duration: 4.5s; animation-delay: 2s;"></div>
+        <div class="petal special" style="left: 35%; animation-duration: 5.5s; animation-delay: 3s;"></div>
+        <div class="petal" style="left: 45%; animation-duration: 7s; animation-delay: 4s;"></div>
+        <div class="petal special" style="left: 55%; animation-duration: 5s; animation-delay: 5s;"></div>
+        <div class="petal" style="left: 65%; animation-duration: 6.5s; animation-delay: 1.5s;"></div>
+        <div class="petal special" style="left: 75%; animation-duration: 4.8s; animation-delay: 2.5s;"></div>
+        <div class="petal" style="left: 85%; animation-duration: 5.8s; animation-delay: 3.5s;"></div>
+        <div class="petal special" style="left: 95%; animation-duration: 6.2s; animation-delay: 4.5s;"></div>
+    </div>
+
+    <div class="floating-elements">
+        <div class="heart" style="left: 10%; animation-delay: 0s;">♥</div>
+        <div class="star" style="left: 20%; animation-delay: 1s;">✨</div>
+        <div class="heart" style="left: 30%; animation-delay: 2s;">♥</div>
+        <div class="star" style="left: 40%; animation-delay: 3s;">⭐</div>
+        <div class="heart" style="left: 50%; animation-delay: 4s;">♥</div>
+        <div class="star" style="left: 60%; animation-delay: 5s;">✨</div>
+        <div class="heart" style="left: 70%; animation-delay: 1.5s;">♥</div>
+        <div class="star" style="left: 80%; animation-delay: 2.5s;">⭐</div>
+        <div class="heart" style="left: 90%; animation-delay: 3.5s;">♥</div>
+        <div class="star" style="left: 15%; animation-delay: 4.5s;">✨</div>
+        <div class="heart" style="left: 25%; animation-delay: 5.5s;">♥</div>
+        <div class="star" style="left: 35%; animation-delay: 0.5s;">⭐</div>
+    </div>
+
+    <div class="container">
+        <div class="hero fade-in">
+            <h1>Untuk Cintaku yang Tersayang</h1>
+            <p class="hero-subtitle">Kamu adalah alasan aku tersenyum setiap hari</p>
+            <p class="hero-description">
+                Dalam setiap detik waktu yang berlalu, aku semakin yakin bahwa kamu adalah takdirku. 
+                Cintaku padamu tumbuh lebih dalam setiap hari, seperti bunga yang mekar di taman hati kita.
+            </p>
+        </div>
+
+        <div class="rose-garden fade-in">
+            <div class="rose" onclick="showRoseMessage(1)">
+                <div class="rose-center"></div>
+                <div class="rose-petal petal1"></div>
+                <div class="rose-petal petal2"></div>
+                <div class="rose-petal petal3"></div>
+                <div class="rose-petal petal4"></div>
+                <div class="rose-petal petal5"></div>
+                <div class="rose-petal petal6"></div>
+                <div class="rose-petal petal7"></div>
+                <div class="rose-petal petal8"></div>
+            </div>
+            <div class="rose" onclick="showRoseMessage(2)">
+                <div class="rose-center"></div>
+                <div class="rose-petal petal1"></div>
+                <div class="rose-petal petal2"></div>
+                <div class="rose-petal petal3"></div>
+                <div class="rose-petal petal4"></div>
+                <div class="rose-petal petal5"></div>
+                <div class="rose-petal petal6"></div>
+                <div class="rose-petal petal7"></div>
+                <div class="rose-petal petal8"></div>
+            </div>
+            <div class="rose" onclick="showRoseMessage(3)">
+                <div class="rose-center"></div>
+                <div class="rose-petal petal1"></div>
+                <div class="rose-petal petal2"></div>
+                <div class="rose-petal petal3"></div>
+                <div class="rose-petal petal4"></div>
+                <div class="rose-petal petal5"></div>
+                <div class="rose-petal petal6"></div>
+                <div class="rose-petal petal7"></div>
+                <div class="rose-petal petal8"></div>
+            </div>
+            <div class="rose" onclick="showRoseMessage(4)">
+                <div class="rose-center"></div>
+                <div class="rose-petal petal1"></div>
+                <div class="rose-petal petal2"></div>
+                <div class="rose-petal petal3"></div>
+                <div class="rose-petal petal4"></div>
+                <div class="rose-petal petal5"></div>
+                <div class="rose-petal petal6"></div>
+                <div class="rose-petal petal7"></div>
+                <div class="rose-petal petal8"></div>
+            </div>
+            <div class="rose" onclick="showRoseMessage(5)">
+                <div class="rose-center"></div>
+                <div class="rose-petal petal1"></div>
+                <div class="rose-petal petal2"></div>
+                <div class="rose-petal petal3"></div>
+                <div class="rose-petal petal4"></div>
+                <div class="rose-petal petal5"></div>
+                <div class="rose-petal petal6"></div>
+                <div class="rose-petal petal7"></div>
+                <div class="rose-petal petal8"></div>
+            </div>
+        </div>
+
+        <div class="timeline fade-in">
+            <h2 class="timeline-title">Perjalanan Cinta Kita</h2>
+            <div class="timeline-container">
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-date">3 Juni 2025</div>
+                        <h3 class="timeline-title-item">Pertama Kali Aku Follow Instagram mu</h3>
+                        <p class="timeline-description">
+                            Di saat itu aku melihatmu di Instagram, dan hatiku langsung bergetar.
+                        </p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-date">3 Juni 2025</div>
+                        <h3 class="timeline-title-item">Chat Pertama</h3>
+                        <p class="timeline-description">
+                            Saat itu aku memberanikan diri untuk mengirim pesan pertamaku. 
+                            Momen yang membuatku merasa berani untuk mengenalmu lebih dekat.
+                        </p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-date">24 Juli 2025</div>
+                        <h3 class="timeline-title-item">Pertama "I Love You"</h3>
+                        <p class="timeline-description">
+                            Saat itu aku tahu, kamu adalah orang yang ingin kuhabiskan sisa hidupku. Tiga kata yang mengubah segalanya.
+                        </p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-date">Hari Ini</div>
+                        <h3 class="timeline-title-item">Cinta yang Terus Tumbuh</h3>
+                        <p class="timeline-description">
+                            Setiap hari aku mencintaimu lebih dalam dari hari sebelumnya. Kamu adalah alasan aku bersyukur setiap pagi.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="love-cards fade-in">
+            <div class="love-card">
+                <h3>Kenangan Manis Bersamamu</h3>
+                <p>
+                    Dari tawa kita bersama, hingga air mata yang kita bagi, setiap momen adalah permata dalam hati ku. 
+                    Aku menyimpan setiap detik dalam kotak kenangan hati yang tak pernah pudar.
+                </p>
+            </div>
+            <div class="love-card">
+                <h3>Mimpi Kita Bersama</h3>
+                <p>
+                    Aku memimpikan hari dimana kita bangun bersama setiap pagi, saling tersenyum dan tahu bahwa kita akan menghabiskan 
+                    sisa hidup kita berdua, tumbuh tua bersama, saling mencintai lebih dalam setiap hari.
+                </p>
+            </div>
+            <div class="love-card">
+                <h3>Alasan Aku Mencintaimu</h3>
+                <p>
+                    Aku mencintaimu bukan hanya karena siapa dirimu, tapi karena siapa aku saat aku bersamamu. 
+                    Kamu membuatku menjadi versi terbaik dari diriku sendiri.
+                </p>
+            </div>
+            <div class="love-card">
+                <h3>Janji Cinta Abadi</h3>
+                <p>
+                    Di setiap doa ku, aku selalu memohon agar kita selalu bersama. Karena aku tahu, 
+                    tak ada yang lebih indah selain menghabiskan masa depan denganmu, mencintaimu setiap detik.
+                </p>
+            </div>
+            <div class="love-card">
+                <h3>Kata-Kata dari Hati</h3>
+                <p>
+                    Jika aku bisa memberimu satu hal dalam hidup, aku akan memberimu kemampuan untuk melihat dirimu 
+                    seperti yang kulihat setiap hari - sempurna, luar biasa, dan tak ternilai harganya.
+                </p>
+            </div>
+            <div class="love-card">
+                <h3>Cinta yang Tak Terukur</h3>
+                <p>
+                    Cintaku padamu tak bisa diukur dengan kata-kata. Ia seperti lautan - luas, dalam, dan tak berujung. 
+                    Setiap hari aku jatuh cinta padamu seperti hari pertama kita bertemu.
+                </p>
+            </div>
+        </div>
+
+        <div class="quote-section fade-in">
+            <p class="quote">
+                "Kamu adalah buku favoritku yang ingin kubaca berulang kali, lagu favoritku yang ingin kudengar sepanjang hari, 
+                dan film favoritku yang ingin kutonton seumur hidup. Kamu adalah kisah cintaku yang tak akan pernah berakhir."
+            </p>
+            <p class="quote-author">- Cintaku yang tak terhingga</p>
+        </div>
+
+        <div class="interactive-section fade-in">
+            <h3 style="color: white; margin-bottom: 30px; font-family: 'Dancing Script', cursive; font-size: 2.5rem;">
+                Kenangan Spesial Kita
+            </h3>
+            <button class="memory-button" onclick="showMemory('first-date')">Kencan Pertama</button>
+            <button class="memory-button" onclick="showMemory('first-kiss')">Foto Bareng Bersama</button>
+            <button class="memory-button" onclick="showMemory('birthday')">Ulang Tahunmu</button>
+            
+            <div id="first-date" class="hidden-message">
+                <h4>Kencan Pertama Kita</h4>
+                <p>Aku masih ingat gugupku saat itu. Tapi semua ketegangan lenyap saat kau tersenyum padaku. 
+                Kita menghabiskan 2-3 jam berbicara tanpa henti, seolah dunia hanya milik berdua.</p>
+            </div>
+            
+            <div id="first-kiss" class="hidden-message">
+                <h4>Foto Bareng Bersama</h4>
+                <p>Saat itu dikala kumpul di sanggar dan kita berdua berada di sebelah pintu di kursi panjang, kita duduk berdua dan kamu mengajak ku foto bersama kala itu meski harus setengah muka hahaha.</p>
+            </div>
+            
+            <div id="birthday" class="hidden-message">
+                <h4>Ulang Tahunmu yang Spesial</h4>
+                <p>Aku merencanakan kejutan sederhana</p>
+            </div>
+        </div>
+
+        <div class="countdown-section fade-in">
+            <h2 class="countdown-title">Menuju Hari Bahagia Kita</h2>
+            <div class="countdown-timer">
+                <div class="countdown-item">
+                    <div class="countdown-number" id="days">365</div>
+                    <div class="countdown-label">Hari</div>
+                </div>
+                <div class="countdown-item">
+                    <div class="countdown-number" id="hours">24</div>
+                    <div class="countdown-label">Jam</div>
+                </div>
+                <div class="countdown-item">
+                    <div class="countdown-number" id="minutes">60</div>
+                    <div class="countdown-label">Menit</div>
+                </div>
+                <div class="countdown-item">
+                    <div class="countdown-number" id="seconds">60</div>
+                    <div class="countdown-label">Detik</div>
+                </div>
+            </div>
+        </div>
+
+        <audio id="bgMusic" loop>
+            <source src="bestpart.mp3" type="audio/mpeg">
+            <source src="kita.mp3" type="audio/mpeg">
+            Your browser does not support the audio element.
+        </audio>
+    </div>
+
+    <div class="music-player" onclick="toggleMusic()">
+        <div class="play-btn" id="playBtn">▶</div>
+        <span id="musicText">Play Our Song</span>
+    </div>
+
+    <script>
+        // Scroll animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Timeline animation
+        document.querySelectorAll('.timeline-item').forEach((item, index) => {
+            item.style.animationDelay = `${index * 0.2}s`;
+        });
+
+        // Rose messages
+        const roseMessages = {
+            1: "Mawar pertama: Setiap kelopaknya mewakili alasan aku mencintaimu",
+            2: "Mawar kedua: Setiap duri mewakili tantangan yang kita lalui bersama",
+            3: "Mawar ketiga: Wanginya mewakili keharuman cinta kita yang tak pernah pudar",
+            4: "Mawar keempat: Warna merahnya mewakili kedalaman cintaku padamu",
+            5: "Mawar kelima: Bentuknya yang sempurna mewakili kesempurnaanmu di mataku"
+        };
+
+        function showRoseMessage(roseNumber) {
+            alert(roseMessages[roseNumber]);
+        }
+
+        // Memory functions
+        function showMemory(memoryId) {
+            const allMessages = document.querySelectorAll('.hidden-message');
+            allMessages.forEach(msg => msg.style.display = 'none');
+            
+            const targetMessage = document.getElementById(memoryId);
+            if (targetMessage) {
+                targetMessage.style.display = 'block';
+            }
+        }
+
+        // Countdown timer
+        function updateCountdown() {
+            const targetDate = new Date();
+            targetDate.setFullYear(targetDate.getFullYear() + 1); // 1 year from now
+            
+            const now = new Date().getTime();
+            const distance = targetDate - now;
+            
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+            
+            document.getElementById('days').textContent = days;
+            document.getElementById('hours').textContent = hours;
+            document.getElementById('minutes').textContent = minutes;
+            document.getElementById('seconds').textContent = seconds;
+        }
+
+        setInterval(updateCountdown, 1000);
+        updateCountdown();
+
+        // Music player
+        let isPlaying = false;
+        const audio = document.getElementById('bgMusic');
+        const playBtn = document.getElementById('playBtn');
+        const musicText = document.getElementById('musicText');
+
+        function toggleMusic() {
+            if (isPlaying) {
+                audio.pause();
+                playBtn.textContent = '▶';
+                musicText.textContent = 'Play Our Song';
+            } else {
+                audio.play();
+                playBtn.textContent = '⏸';
+                musicText.textContent = 'Now Playing...';
+            }
+            isPlaying = !isPlaying;
+        }
+
+        // Auto-play music on user interaction
+        document.addEventListener('click', function() {
+            if (!isPlaying) {
+                audio.play().then(() => {
+                    isPlaying = true;
+                    playBtn.textContent = '⏸';
+                    musicText.textContent = 'Now Playing...';
+                }).catch(e => console.log('Audio play failed:', e));
+            }
+        }, { once: true });
+
+        // Create more floating elements dynamically
+        function createFloatingElements() {
+            const container = document.querySelector('.floating-elements');
+            const symbols = ['♥', '✨', '⭐', '💝', '🌹', '💖', '💕'];
+            
+            for (let i = 0; i < 20; i++) {
+                const element = document.createElement('div');
+                element.className = Math.random() > 0.5 ? 'heart' : 'star';
+                element.textContent = symbols[Math.floor(Math.random() * symbols.length)];
+                element.style.left = Math.random() * 100 + '%';
+                element.style.animationDelay = Math.random() * 6 + 's';
+                element.style.animationDuration = (Math.random() * 3 + 3) + 's';
+                container.appendChild(element);
+            }
+        }
+
+        createFloatingElements();
+
+        // Add click effects
+        document.addEventListener('click', function(e) {
+            const heart = document.createElement('div');
+            heart.innerHTML = '♥';
+            heart.style.position = 'fixed';
+            heart.style.left = e.clientX + 'px';
+            heart.style.top = e.clientY + 'px';
+            heart.style.color = '#ff6b6b';
+            heart.style.fontSize = '20px';
+            heart.style.pointerEvents = 'none';
+            heart.style.zIndex = '1001';
+            heart.style.animation = 'float 1s ease-out forwards';
+            
+            document.body.appendChild(heart);
+            
+            setTimeout(() => {
+                heart.remove();
+            }, 1000);
+        });
+    </script>
+</body>
+</html>
